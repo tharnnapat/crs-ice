@@ -94,7 +94,8 @@ class CalendarView(webapp2.RequestHandler):
 					dateTime = event['start']['dateTime']
 					year = [dateTime[:4]]
 					month = [dateTime[5:-18]]
-					date = date.append(dateTime[8:-15])
+					date = []
+					date.append(dateTime[8:-15])
 					# self.response.write("dateTime")	            	
 					# self.response.write(event['start']['dateTime'])
 					# self.response.write("</br>")
@@ -105,7 +106,8 @@ class CalendarView(webapp2.RequestHandler):
 					dateTime = event['start']['date']
 					year = [dateTime[:4]]
 					month = [dateTime[5:-3]]
-					date = date.append(dateTime[8:]) 	   
+					date = []
+					date.append(dateTime[8:]) 	   
 					# self.response.write("dateTime")	            	
 					# self.response.write(event['start']['date'])
 					# self.response.write("</br>")
