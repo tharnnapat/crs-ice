@@ -89,12 +89,14 @@ class CalendarView(webapp2.RequestHandler):
 
 		http = decorator.http()
 		events = service.events().list(calendarId='primary').execute(http=http)
+		year = []
+		month = []
+		date = []
 	        for event in events['items']:
 	            if 'dateTime' in event['start']:
 					dateTime = event['start']['dateTime']
-					year = [dateTime[:4]]
-					month = [dateTime[5:-18]]
-					date = []
+					year.append(dateTime[:4])
+					month.append(dateTime[5:-18])
 					date.append(dateTime[8:-15])
 					# self.response.write("dateTime")	            	
 					# self.response.write(event['start']['dateTime'])
@@ -104,18 +106,23 @@ class CalendarView(webapp2.RequestHandler):
 					# self.response.write("Date ::"+date+"</br>")	  						         		            		            		  	            		            	            	
 	            else:
 					dateTime = event['start']['date']
-					year = [dateTime[:4]]
-					month = [dateTime[5:-3]]
-					date = []
+					year.append(dateTime[:4])
+					month.append(dateTime[5:-3])
 					date.append(dateTime[8:]) 	   
 					# self.response.write("dateTime")	            	
 					# self.response.write(event['start']['date'])
 					# self.response.write("</br>")
 					# self.response.write("Year ::"+year+"</br>")
-					# self.response.write("Month ::"+month+"</br>")
-		x = [1,2,3,4]	  	 		
-		for i in date:
-			self.response.write(i)
+					# self.response.write("Month ::"+month+"</br>")	
+		# for x in year:
+		# 	for y in month:
+		# 		for z in date:
+		# 			self.response.write(x)
+		# 			self.response.write("</br>")
+		# 			self.response.write(y)
+		# 			self.response.write("</br>")
+		# 			self.response.write(z)
+		# 			self.response.write("</br>")
 		templates = {
 				'events' : events['items'],
 				'year' : year,

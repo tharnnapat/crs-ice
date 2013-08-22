@@ -48,11 +48,17 @@ body {
         <tr>
           <td width="50%" rowspan="2" valign="top">
           <div id='calendar'>
-             {% for row in events %}
-              {% for row in day %}
-               {{ row[0] }}
+
+              {% for row in year %}
+              {% for row2 in month %}
+              {% for row3 in date %}
+               Year :: {{ row }} </br>
+               Month :: {{ row2 }} </br>
+               Date :: {{ row3 }} </br>                             
               {% endfor %}
-             {% endfor %}
+              {% endfor %}
+              {% endfor %}
+
           </div>
           </td>
           <td><span class="font-2">Enrolled Courses</span>
