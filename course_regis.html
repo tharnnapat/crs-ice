@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Course Register System</title>
+
+<link href='css/fullcalendar.css' rel='stylesheet' />
+<link href='cssfullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='css/jquery-1.10.2.min.js'></script>
+<script src='css/jquery-ui-1.10.3.custom.min.js'></script>
+<script src='css/fullcalendar.min.js'></script>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	background-color: #FBFBFB;
+}
+-->
+</style></head>
+
+<body>
+
+<div id="main" align="center">
+<div align="center" class="font-4" id="title"> Course Register System</div>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="right"><table width="40%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="60%" align="right" class="font-2">Credit total ::</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="60%" align="right" class="font-2">Credit Enroll ::</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td><table width="30%" border="0" cellpadding="0" cellspacing="0" id="menu">
+        <tr class="font-3">
+          <td width="50%" align="center"><a href="#">Home</a></td>
+          <td align="center"><a href="#">Course</a></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td><table width="100%" border="0" cellpadding="5" cellspacing="0" id="table-body">
+        <tr>
+          <td width="50%" rowspan="2" valign="top">
+          <div id='calendar'>
+             {% for row in events %}
+              {% for row in day %}
+               {{ row[0] }}
+              {% endfor %}
+             {% endfor %}
+          </div>
+          </td>
+          <td><span class="font-2">Enrolled Courses</span>
+            <table width="100%" border="0" cellpadding="5" cellspacing="0" id="enroll" >
+            <tr>
+              <td width="15%" align="center" bgcolor="#FFCC33">ID</td>
+              <td align="center" bgcolor="#FFCC33">Name</td>
+              <td width="15%" align="center" bgcolor="#FFCC33">Section</td>
+              <td width="15%" align="center" bgcolor="#FFCC33">Credit</td>
+              <td width="15%" align="center" bgcolor="#FFCC33">&nbsp;</td>
+            </tr>
+            <tr class="font-1">
+              <td align="center" bgcolor="#FF9966">&nbsp;</td>
+              <td align="center" bgcolor="#FF9966">&nbsp;</td>
+              <td align="center" bgcolor="#FF9966">&nbsp;</td>
+              <td align="center" bgcolor="#FF9966">&nbsp;</td>
+              <td align="center" bgcolor="#FF9966"><a href="#">Remove</a></td>
+            </tr>
+            <tr class="font-1">
+              <td align="center" bgcolor="#FFCC99">&nbsp;</td>
+              <td align="center" bgcolor="#FFCC99">&nbsp;</td>
+              <td align="center" bgcolor="#FFCC99">&nbsp;</td>
+              <td align="center" bgcolor="#FFCC99">&nbsp;</td>
+              <td align="center" bgcolor="#FFCC99"><a href="#">Remove</a></td>
+            </tr>
+          </table>            <br /></td>
+        </tr>
+        <tr>
+          <td><span class="font-2">Followed Courses</span>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5" id="follow">
+              <tr>
+                <td width="15%" align="center" bgcolor="#FFCC33">ID</td>
+                <td align="center" bgcolor="#FFCC33">Name</td>
+                <td width="15%" align="center" bgcolor="#FFCC33">Section</td>
+                <td width="15%" align="center" bgcolor="#FFCC33">Credit</td>
+                <td width="15%" align="center" bgcolor="#FFCC33">&nbsp;</td>
+              </tr>
+              <tr class="font-1">
+                <td align="center" bgcolor="#FF9966">&nbsp;</td>
+                <td align="center" bgcolor="#FF9966">&nbsp;</td>
+                <td align="center" bgcolor="#FF9966">&nbsp;</td>
+                <td align="center" bgcolor="#FF9966">&nbsp;</td>
+                <td align="center" bgcolor="#FF9966"><a href="#">Remove</a></td>
+              </tr>
+              <tr class="font-1">
+                <td height="16" align="center" bgcolor="#FFCC99">&nbsp;</td>
+                <td align="center" bgcolor="#FFCC99">&nbsp;</td>
+                <td align="center" bgcolor="#FFCC99">&nbsp;</td>
+                <td align="center" bgcolor="#FFCC99">&nbsp;</td>
+                <td align="center" bgcolor="#FFCC99"><a href="#">Follow</a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
