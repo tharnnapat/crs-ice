@@ -91,22 +91,35 @@ body {
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
+    var dd = 30;
+    var mm = 08;
+    var yy = 2013;
     
     $('#calendar').fullCalendar({
       editable: true,
       events: [
         {
           title: 'All Day Event',
-          start: (2013,08,10)
+          start: new Date(yy,mm,dd)
         },
         {
           title: 'Long Event',
-          start: new Date(y, m, d-5),
-          end: new Date(y, m, d-2)
+          start: new Date(y, mm, dd),
+          end: new Date(y, mm, dd-2)
         },
       ]
     });
     
+  
+document.write(date+"</br>")
+document.write(d+"</br>")
+document.write(m+"</br>")
+document.write(y+"</br>")
+document.write(dd+"</br>")
+document.write(mm+"</br>")
+document.write(yy+"</br>")
+
+
   });
 
 
