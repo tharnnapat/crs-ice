@@ -48,17 +48,71 @@ body {
         <tr>
           <td width="50%" rowspan="2" valign="top">
           <div id='calendar'>
+            <script type="text/javascript">
+
+/*-------------------------------------------- Start Get Array --------------------------------------------------------- */
+            var year=[""];
+            var month=[""];
+            var date=[""];
 
               {% for row in year %}
+                year.push("{{row}}");
+              {% endfor %} 
+
               {% for row2 in month %}
+                month.push("{{row2}}");
+              {% endfor %}      
+
               {% for row3 in date %}
-               Year :: {{ row }} </br>
-               Month :: {{ row2 }} </br>
-               Date :: {{ row3 }} </br>                             
-              {% endfor %}
-              {% endfor %}
+                 date.push("{{row3}}");  
               {% endfor %}
 
+              var cnt = year.length;
+/*-------------------------------------------- End Get Array --------------------------------------------------------- */
+              // for(var x=0;i<year.length;x++){
+              //   document.write(x+"</br>")
+
+              // }
+
+
+              // for(var i=1;i<=cnt-1;i++){
+              //     // year.push(i);
+              //     document.write("Year :: "+year[i]+"</br>"  );
+              //     document.write("Month :: "+month[i]+"</br>");
+              //     document.write("Date :: "+date[i]+"</br>");
+              // }
+
+/*-------------------------------------------- Start Calendar --------------------------------------------------------- */
+
+
+  $(document).ready(function() {
+  
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    
+    $('#calendar').fullCalendar({
+      editable: true,
+      events: [
+        {
+          title: 'All Day Event',
+          start: (2013,08,10)
+        },
+        {
+          title: 'Long Event',
+          start: new Date(y, m, d-5),
+          end: new Date(y, m, d-2)
+        },
+      ]
+    });
+    
+  });
+
+
+
+/*-------------------------------------------- Start Calendar --------------------------------------------------------- */              
+            </script>
           </div>
           </td>
           <td><span class="font-2">Enrolled Courses</span>

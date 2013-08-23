@@ -115,10 +115,19 @@ class CalendarView(webapp2.RequestHandler):
 					# self.response.write("Year ::"+year+"</br>")
 					# self.response.write("Month ::"+month+"</br>")	
 		# for x in year:
+		# 	self.response.write("Year :: ")			
+		# 	self.response.write(x)
+		# 	self.response.write("</br>")
+		# for y in month:
+		# 	self.response.write("Month :: ")
+		# 	self.response.write(y)
+		# 	self.response.write("</br>")
+		# for z in date:
+		# 	self.response.write("Date :: ")
+		# 	self.response.write(z)
+		# 	self.response.write("</br>")
 		# 	for y in month:
 		# 		for z in date:
-		# 			self.response.write(x)
-		# 			self.response.write("</br>")
 		# 			self.response.write(y)
 		# 			self.response.write("</br>")
 		# 			self.response.write(z)
