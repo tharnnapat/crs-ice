@@ -99,25 +99,25 @@ body {
       editable: true,
       events: [
         {
-          title: 'All Day Event',
-          start: "("+str(yy)+","+str(mm)+","+str(dd)+")"
+          title: 'All Day Even 1t',
+          start: new Date(yy, mm, dd)
         },
         {
           title: 'Long Event',
-          start: new Date(y, mm, dd),
-          end: new Date(y, mm, dd-2)
+          start: new Date(y, m, dd),
+          end: new Date(y, m, dd-2)
         },
       ]
     });
     
   
-document.write(date+"</br>")
-document.write(d+"</br>")
-document.write(m+"</br>")
-document.write(y+"</br>")
-document.write(dd+"</br>")
-document.write(mm+"</br>")
-document.write(yy+"</br>")
+// document.write(date+"</br>")
+// document.write(d+"</br>")
+// document.write(m+"</br>")
+// document.write(y+"</br>")
+// document.write(dd+"</br>")
+// document.write(mm+"</br>")
+// document.write(yy+"</br>")
 
 
   });
