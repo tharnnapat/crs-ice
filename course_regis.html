@@ -57,6 +57,11 @@ body {
             var year=[""];
             var month=[""];
             var date=[""];
+            var start_time_hour = [""];
+            var start_time_minute = [""];
+            var end_time_hour = [""];
+            var end_time_minute = [""];
+            var allday_time = [""];
 
               {% for row in year %}
                 year.push("{{row}}");
@@ -70,15 +75,33 @@ body {
                  date.push("{{row3}}");  
               {% endfor %}
 
-            var cnt = year.length;
+              {% for row4 in start_time_hour %}
+                 start_time_hour.push("{{row4}}");  
+              {% endfor %}
+
+              {% for row5 in start_time_minute %}
+                 start_time_minute.push("{{row5}}");  
+              {% endfor %}
+
+              {% for row6 in end_time_hour %}
+                 end_time_hour.push("{{row6}}");  
+              {% endfor %}
+
+              {% for row7 in end_time_hour %}
+                 end_time_hour.push("{{row7}}");  
+              {% endfor %}allday_time
+
+              {% for row8 in allday_time %}
+                 allday_time.push("{{row8}}");  
+              {% endfor %}
 
 /*-------------------------------------------- End Get Array --------------------------------------------------------- */
-
-              // for(var i=1;i<=cnt-1;i++){
-              //     document.write("Year :: "+year[i]+"</br>"  );
-              //     document.write("Month :: "+month[i]+"</br>");
-              //     document.write("Date :: "+date[i]+"</br>");
-              // }
+            // var cnt = year.length;
+            //   for(var i=1;i<=cnt-1;i++){
+            //       document.write("Year :: "+year[i]+"</br>"  );
+            //       document.write("Month :: "+month[i]+"</br>");
+            //       document.write("Date :: "+date[i]+"</br>");
+            //   }
 
 /*-------------------------------------------- Start Calendar --------------------------------------------------------- */
 
@@ -91,14 +114,22 @@ body {
                 },
         defaultView: 'agendaWeek',
         events: [
-        {% for row in events %}         
+        {% for row in events %}   
+        {% if(allday_time[{{loop.index}}]==1) %}
           {
-            document.write(i);
-            title: '{{ row['summary'] }}' ,
-            start: new Date(year[{{loop.index}}],month[{{loop.index}}]-1,date[{{loop.index}}],12,30),
-            end: new Date(year[{{loop.index}}],month[{{loop.index}}]-1,date[{{loop.index}}],14,00),
-            allDay: false;
-          },
+          title: '{{ row['summary'] }}',
+          start: new Date(year[{{loop.index}}], month[{{loop.index}}], date[{{loop.index}}], start_time_hour[{{loop.index}}], start_time_minute[{{loop.index}}]),
+          end: new Date(year[{{loop.index}}], month[{{loop.index}}], date[{{loop.index}}], end_time_hour[{{loop.index}}], end_time_minute[{{loop.index}}]),
+          allDay: false
+        },
+        {% else %}
+          {
+          title: '{{ row['summary'] }}',
+          start: new Date(year[{{loop.index}}], month[{{loop.index}}], date[{{loop.index}}], start_time_hour[{{loop.index}}], start_time_minute[{{loop.index}}]),
+          end: new Date(year[{{loop.index}}], month[{{loop.index}}], date[{{loop.index}}], end_time_hour[{{loop.index}}], end_time_minute[{{loop.index}}]),
+          allDay: true
+        },
+        {% endif %}
         {% endfor %}
         ]
       });

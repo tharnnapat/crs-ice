@@ -92,12 +92,22 @@ class CalendarView(webapp2.RequestHandler):
 		year = []
 		month = []
 		date = []
+		start_time_hour = []
+		start_time_minute = []
+		end_time_hour = []
+		end_time_minute = []
+		allday_time = []
+
 	        for event in events['items']:
 	            if 'dateTime' in event['start']:
 					dateTime = event['start']['dateTime']
+					dateTime2 = event['end']['dateTime']
 					year.append(dateTime[:4])
 					month.append(dateTime[5:-18])
 					date.append(dateTime[8:-15])
+					start_time_hour.append(dateTime2[11:-12])
+					start_time_minute.append(dateTime2[14:-9])
+					allday_time.append("0")
 					# self.response.write("dateTime")	            	
 					# self.response.write(event['start']['dateTime'])
 					# self.response.write("</br>")
@@ -106,14 +116,20 @@ class CalendarView(webapp2.RequestHandler):
 					# self.response.write("Date ::"+date+"</br>")	  						         		            		            		  	            		            	            	
 	            else:
 					dateTime = event['start']['date']
+					dateTime2 = event['end']['date']
 					year.append(dateTime[:4])
 					month.append(dateTime[5:-3])
 					date.append(dateTime[8:]) 	   
+					end_time_hour.append(00)
+					end_time_minute.append(00)
+					allday_time.append("1")
 					# self.response.write("dateTime")	            	
 					# self.response.write(event['start']['date'])
 					# self.response.write("</br>")
 					# self.response.write("Year ::"+year+"</br>")
-					# self.response.write("Month ::"+month+"</br>")	
+					# self.response.write("Month ::"+month+"</br>")
+
+
 		# for x in year:
 		# 	self.response.write("Year :: ")			
 		# 	self.response.write(x)
@@ -127,12 +143,37 @@ class CalendarView(webapp2.RequestHandler):
 		# 	self.response.write(z)
 		# 	self.response.write("</br>")
 
+		for a in start_time_hour:
+			self.response.write("Start_time_hour :: ")
+			self.response.write(a)
+			self.response.write("</br>")
+		for b in start_time_minute:
+			self.response.write("Start_time_minute :: ")
+			self.response.write(b)
+			self.response.write("</br>")			
+		for c in end_time_hour:
+			self.response.write("End_time_hour :: ")
+			self.response.write(c)
+			self.response.write("</br>")
+		for d in end_time_minute:
+			self.response.write("End_time_minute  :: ")
+			self.response.write(d)
+			self.response.write("</br>")
+		for e in allday_time:
+			self.response.write("Type  :: ")
+			self.response.write(e)
+			self.response.write("</br>")	
 
 		templates = {
 				'events' : events['items'],
 				'year' : year,
 				'month' : month,
 				'date' : date,	
+				'start_time_hour' : start_time_hour,	
+				'start_time_minute' : start_time_minute,	
+				'end_time_hour' : end_time_hour,	
+				'end_time_minute' : end_time_minute,	
+				'allday_time' : allday_time,	
 			}
 
 		template = JINJA_ENVIRONMENT.get_template('course_regis.html')
