@@ -21,7 +21,8 @@ body {
 <body>
 
 <div id="main" align="center">
-<div align="center" class="font-4" id="title"> Course Register System</div>
+<div align="center" class="font-4" id="title" > Course Register System</div>
+<div style="margin-bottom:20px;">
   <table width="95%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td align="right"><table width="40%" border="0" cellspacing="0" cellpadding="5">
@@ -50,6 +51,8 @@ body {
           <div id='calendar'>
             <script type="text/javascript">
 
+  $(document).ready(function() {
+
 /*-------------------------------------------- Start Get Array --------------------------------------------------------- */
             var year=[""];
             var month=[""];
@@ -67,16 +70,11 @@ body {
                  date.push("{{row3}}");  
               {% endfor %}
 
-              var cnt = year.length;
+            var cnt = year.length;
+
 /*-------------------------------------------- End Get Array --------------------------------------------------------- */
-              // for(var x=0;i<year.length;x++){
-              //   document.write(x+"</br>")
-
-              // }
-
 
               // for(var i=1;i<=cnt-1;i++){
-              //     // year.push(i);
               //     document.write("Year :: "+year[i]+"</br>"  );
               //     document.write("Month :: "+month[i]+"</br>");
               //     document.write("Date :: "+date[i]+"</br>");
@@ -84,47 +82,33 @@ body {
 
 /*-------------------------------------------- Start Calendar --------------------------------------------------------- */
 
-
-  $(document).ready(function() {
-  
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-    var dd = 30;
-    var mm = 08;
-    var yy = 2013;
-    
     $('#calendar').fullCalendar({
-      editable: true,
-      events: [
-        {
-          title: 'All Day Even 1t',
-          start: new Date(yy, mm, dd)
-        },
-        {
-          title: 'Long Event',
-          start: new Date(y, m, dd),
-          end: new Date(y, m, dd-2)
-        },
-      ]
-    });
-    
-  
-// document.write(date+"</br>")
-// document.write(d+"</br>")
-// document.write(m+"</br>")
-// document.write(y+"</br>")
-// document.write(dd+"</br>")
-// document.write(mm+"</br>")
-// document.write(yy+"</br>")
+        editable: true,
+        header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+        defaultView: 'agendaWeek',
+        events: [
 
+        // {% for row in num %}   
+        // {{ row }}
+          {
+            document.write(i);
+            title: '{{ row['summary'] }}' ,
+            start: new Date(year[i],month[i]-1,date[i],12,30),
+            end: new Date(year[i],month[i]-1,date[i],14,00),
+            allDay: false);
+          },
+
+        // {% endfor %}
+        ]
+      });
 
   });
 
-
-
-/*-------------------------------------------- Start Calendar --------------------------------------------------------- */              
+/*-------------------------------------------- END Calendar --------------------------------------------------------- */              
             </script>
           </div>
           </td>
@@ -182,6 +166,7 @@ body {
       </table></td>
     </tr>
   </table>
+</div>
 </div>
 </body>
 </html>
