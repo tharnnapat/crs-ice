@@ -91,18 +91,15 @@ body {
                 },
         defaultView: 'agendaWeek',
         events: [
-
-        // {% for row in num %}   
-        // {{ row }}
+        {% for row in events %}         
           {
             document.write(i);
             title: '{{ row['summary'] }}' ,
-            start: new Date(year[i],month[i]-1,date[i],12,30),
-            end: new Date(year[i],month[i]-1,date[i],14,00),
-            allDay: false);
+            start: new Date(year[{{loop.index}}],month[{{loop.index}}]-1,date[{{loop.index}}],12,30),
+            end: new Date(year[{{loop.index}}],month[{{loop.index}}]-1,date[{{loop.index}}],14,00),
+            allDay: false;
           },
-
-        // {% endfor %}
+        {% endfor %}
         ]
       });
 

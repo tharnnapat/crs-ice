@@ -122,10 +122,10 @@ class CalendarView(webapp2.RequestHandler):
 		# 	self.response.write("Month :: ")
 		# 	self.response.write(y)
 		# 	self.response.write("</br>")
-		for z in date:
-			self.response.write("Date :: ")
-			self.response.write(z)
-			self.response.write("</br>")
+		# for z in date:
+		# 	self.response.write("Date :: ")
+		# 	self.response.write(z)
+		# 	self.response.write("</br>")
 
 
 		templates = {
