@@ -115,7 +115,7 @@ body {
         defaultView: 'agendaWeek',
         events: [
         {% for row in events %}   
-        {% if(allday_time[{{loop.index}}]==1) %}
+        {% if(allday_time[{{loop.index}}]%1==1) %}
           {
           title: '{{ row['summary'] }}',
           start: new Date(year[{{loop.index}}], month[{{loop.index}}], date[{{loop.index}}], start_time_hour[{{loop.index}}], start_time_minute[{{loop.index}}]),
